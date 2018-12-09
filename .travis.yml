@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mrkaj/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run mrkaj/docker-react yarn run test -- --coverage
